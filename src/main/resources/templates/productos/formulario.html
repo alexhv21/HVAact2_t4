@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario con @ModelAttribute</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        form { width: 350px; display: flex; flex-direction: column; gap: 12px; }
+        input { padding: 8px; font-size: 14px; }
+        button { padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Registrar Producto con @ModelAttribute</h2>
+    <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+        <label>Nombre del Producto:</label>
+        <input type="text" th:field="*{nombre}" required placeholder="Ej. Monitor OLED" />
+
+        <label>Precio:</label>
+        <input type="number" step="0.01" th:field="*{precio}" required placeholder="Ej. 8500.00" />
+
+        <label>Categoría:</label>
+        <input type="text" th:field="*{categoria}" required placeholder="Ej. Computo" />
+
+        <button type="submit">Guardar Producto</button>
+    </form>
+    <br>
+    <a href="/productos/listar">Cancelar y volver</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Productos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f7f9fa; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        .info-box { background: #e9ecef; padding: 12px; border-radius: 6px; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 8px 12px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="info-box">
+        <h2 th:text="${proyecto}">Título</h2>
+        <p><strong>Autor (@Value):</strong> <span th:text="${autor}">Alexis</span></p>
+        <p><strong>Filtro aplicado (@RequestParam):</strong> <span th:text="${categoriaFiltro}">Todas</span></p>
+    </div>
+
+    <a href="/productos/formulario" class="btn">+ Registrar Nuevo Producto</a>
+    
+    <p style="margin-top: 15px;">Filtros rápidos: 
+        <a href="/productos/listar">Todos</a> | 
+        <a href="/productos/listar?categoria=Computo">Computo</a> | 
+        <a href="/productos/listar?categoria=Accesorios">Accesorios</a>
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Categoría</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="prod : ${productos}">
+                <td th:text="${prod.id}">1</td>
+                <td th:text="${prod.nombre}">Nombre</td>
+                <td th:text="'$' + ${prod.precio}">$0.00</td>
+                <td th:text="${prod.categoria}">Cat</td>
+                <td>
+                    <a th:href="@{'/productos/detalle/' + ${prod.id}}">Ver Detalle (@PathVariable)</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Producto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .card { border: 1px solid #ccc; padding: 20px; width: 400px; border-radius: 8px; background: #fff; }
+    </style>
+</head>
+<body>
+    <div class="card" th:if="${producto != null}">
+        <h2>Detalle del Producto (@PathVariable)</h2>
+        <p><strong>ID:</strong> <span th:text="${producto.id}">1</span></p>
+        <p><strong>Nombre:</strong> <span th:text="${producto.nombre}">Nombre</span></p>
+        <p><strong>Precio:</strong> $<span th:text="${producto.precio}">0.00</span></p>
+        <p><strong>Categoría:</strong> <span th:text="${producto.categoria}">Cat</span></p>
+        <hr>
+        <a href="/productos/listar">Volver al listado</a>
+    </div>
+    <div th:if="${producto == null}">
+        <p>Producto no encontrado.</p>
+        <a href="/productos/listar">Volver al listado</a>
+    </div>
+</body>
+</html>
