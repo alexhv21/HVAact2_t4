@@ -3,7 +3,17 @@
 **Estudiante:** Alexis Hernández Vázquez  
 **Materia:** Programación Web  
 **Institución:** Instituto Tecnológico de Oaxaca  
-**Puerto Asignado:** `8083`
+**Puerto Asignado:** `8083`  
+**Repositorio GitHub:** [https://github.com/alexhv21/HVAact2_t4](https://github.com/alexhv21/HVAact2_t4)
+
+---
+
+## Enlaces Rápidos de Producción (VPS)
+
+* **Listado de Productos (MVC / Thymeleaf):** [http://204.48.17.197:8083/productos/listar](http://204.48.17.197:8083/productos/listar)
+* **Formulario de Registro (MVC):** [http://204.48.17.197:8083/productos/formulario](http://204.48.17.197:8083/productos/formulario)
+* **Endpoint REST POST:** `POST http://204.48.17.197:8083/api/productos/crear`
+* **Instancia Actividad 1 (Puerto 8081):** [http://204.48.17.197:8081/api/info/identificacion](http://204.48.17.197:8081/api/info/identificacion)
 
 ---
 
@@ -69,14 +79,19 @@ Envío de datos estructurados en formato JSON a través del método HTTP POST ut
   "precio": 2100.50,
   "categoria": "Componentes"
 }
-´´´
+```
+
+![Petición POST Postman](screenshots/05_postman_post.png)
+
+---
 
 ## Despliegue en el VPS
 
 El proyecto fue empaquetado en un archivo binario `.jar` y desplegado en un servidor VPS independiente ejecutándose con `nohup` en el puerto `8083`, manteniendo intacta la instancia de la Actividad 1 en el puerto `8081`.
 
-* **URL en producción:** `http://204.48.17.197:8083/productos/listar`
+* **URL en producción:** [http://204.48.17.197:8083/productos/listar](http://204.48.17.197:8083/productos/listar)
 * **Comando de ejecución en VPS:**
 
 ```bash
-nohup java -jar ~/actividad2/hva-act2.jar > ~/actividad2/hva-act2.log 2>&1 &´´´
+nohup java -jar ~/actividad2/hva-act2.jar > ~/actividad2/hva-act2.log 2>&1 &
+```
